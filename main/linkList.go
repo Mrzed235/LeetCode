@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type ListNode struct {
-	val  interface{}
+	Val  interface{}
 	Next *ListNode
 }
 
@@ -113,10 +113,10 @@ func (l *LList) Scan() {
 	current := l.Header
 	i := 1
 	for current.Next != nil {
-		fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.val, current.Next)
+		fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.Val, current.Next)
 		current = current.Next
 		i++
 	}
-	fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.val, current.Next)
+	fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.Val, current.Next)
 
 }
