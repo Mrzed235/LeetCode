@@ -25,24 +25,24 @@ LetCode2:给你两个非空 的链表，表示两个非负的整数。它们每�
 
 */
 
-func main() {
-	var l1 string
-	var l2 string
-	_, _ = fmt.Scanln(&l1)
-	_, _ = fmt.Scanln(&l2)
-	arr1s := buildArray(l1)
-	arr2s := buildArray(l2)
-	header1 := CreateList()
-	header2 := CreateList()
-	for _, arr1 := range arr1s {
-		header1.Append(arr1)
-	}
-	for _, arr2 := range arr2s {
-		header2.Append(arr2)
-	}
-	head := addTwoNumbers(header1.Header, header2.Header)
-	Skinhead(head)
-}
+//func main() {
+//	var l1 string
+//	var l2 string
+//	_, _ = fmt.Scanln(&l1)
+//	_, _ = fmt.Scanln(&l2)
+//	arr1s := buildArray(l1)
+//	arr2s := buildArray(l2)
+//	header1 := CreateList()
+//	header2 := CreateList()
+//	for _, arr1 := range arr1s {
+//		header1.Append(arr1)
+//	}
+//	for _, arr2 := range arr2s {
+//		header2.Append(arr2)
+//	}
+//	head := addTwoNumbers(header1.Header, header2.Header)
+//	Skinhead(head)
+//}
 
 func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
 	//创建新链表头和标识位
@@ -53,11 +53,11 @@ func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
 		//定义变量保存两个链表中的值
 		n1, n2 := 0, 0
 		if l1 != nil {
-			n1 = l1.val.(int)
+			n1 = l1.Val.(int)
 			l1 = l1.Next
 		}
 		if l2 != nil {
-			n2 = l2.val.(int)
+			n2 = l2.Val.(int)
 			l2 = l2.Next
 		}
 		//定义sum保存两个链表节点的和
@@ -67,16 +67,16 @@ func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
 		// 则保存0进1给下一个节点求和用,如果之和不大于等于10则carry就=0了，上轮节点计算符合进位的carry就不会被残留，就会被计入当前节点的sum值
 		if head == nil {
 			//新链表中无数据，所以将上述的计算和sum当值存入新的node，如果carry不=0则进位
-			head = &ListNode{val: sum}
+			head = &ListNode{Val: sum}
 			tail = head //将head的地址赋值给tail进行遍历
 		} else {
-			tail.Next = &ListNode{val: sum}
+			tail.Next = &ListNode{Val: sum}
 			tail = tail.Next
 		}
 	}
 	//如果循环完毕后carry!=0的话，则需要创建新节点将carry保存，并链接到之前的链表尾端（carry!=0的情况，两个链表最后一个节点之和大于10，符合进位条件）
 	if carry > 0 {
-		tail.Next = &ListNode{val: carry}
+		tail.Next = &ListNode{Val: carry}
 	}
 	return
 }
@@ -85,11 +85,11 @@ func Skinhead(head *ListNode) {
 	current := head
 	i := 1
 	for current.Next != nil {
-		fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.val, current.Next)
+		fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.Val, current.Next)
 		current = current.Next
 		i++
 	}
-	fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.val, current.Next)
+	fmt.Printf("第%d的节点是%d,下一个节点的地址是%p\n", i, current.Val, current.Next)
 
 }
 
