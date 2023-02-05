@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
 给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false
 输入：head = [1,2,2,1]  1->2->2->1
@@ -53,14 +51,14 @@ func isPalindromeB(head *ListNode) bool {
 	return true
 }
 
-func main() {
-	var input string
-	fmt.Scanln(&input)
-	rs := buildToArr(input)
-	list := CreateList()
-	for _, r := range rs {
-		list.Append(r)
-	}
-	fmt.Println(isPalindromeA(list.Header))
-	fmt.Println(isPalindromeB(list.Header))
-}
+//func main() {
+//	var input string
+//	fmt.Scanln(&input)
+//	rs := buildToArr(input)
+//	list := CreateList()
+//	for _, r := range rs {
+//		list.Append(r)
+//	}
+//	fmt.Println(isPalindromeA(list.Header))
+//	fmt.Println(isPalindromeB(list.Header))
+//}
